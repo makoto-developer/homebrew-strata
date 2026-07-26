@@ -22,11 +22,10 @@
 class Strata < Formula
   desc "多言語・マイクロサービス対応の依存関係可視化・コールグラフ探索ツール"
   homepage "https://makoto-developer.github.io/strata/"
-  version "0.1.0"
-  license "AGPL-3.0-only"
-
   url "https://github.com/makoto-developer/strata/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "95a76c7859e09f00fd1a1b141ea4aee2f4a59b0fde87fbf4cde9f17607602fb1"
+  version "0.1.0"
+  license "AGPL-3.0-only"
 
   on_macos do
     on_arm do
@@ -52,7 +51,7 @@ class Strata < Formula
       libexec.install Dir["*"]
       (bin/"strata").write <<~SH
         #!/bin/bash
-        exec "#{Formula["node"].opt_bin}/node" "#{libexec}/src/cli.ts" "$@"
+        exec "#{formula_opt_bin("node")}/node" "#{libexec}/src/cli.ts" "$@"
       SH
       chmod 0755, bin/"strata"
     end
