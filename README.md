@@ -9,11 +9,15 @@ gRPC・REST・GraphQL をまたいで、関数レベルで処理を追えます�
 
 ```sh
 brew tap makoto-developer/strata
+brew trust makoto-developer/strata   # 公式以外の tap は明示的な信頼が必要(Homebrew の仕様)
 brew install strata
 
 strata --version
 strata serve ./my-monorepo
 ```
+
+`brew trust` を省くと `Refusing to load formula from untrusted tap` で止まります。
+新しめの Homebrew が、公式以外の tap を既定では読み込まなくなったためです。
 
 - **Apple Silicon (macOS 13 以降)**: Node.js を同梱した単一実行ファイルを配布します(Node のインストール不要)
 - **Intel Mac / Linux**: ソースを配置し、Homebrew の `node` で実行します
